@@ -1,19 +1,25 @@
-import ProjectCard from './ProjectCard';
+import React from 'react';
 
-export default function ProjectList() {
+function ProjectList() {
+  // REQUISITO: Array de objetos para renderização dinâmica
   const projetos = [
-    { id: 1, nome: "Meu Portfólio React", desc: "Migração do portfólio para React", link: "https://github.com/BrunoRodrigues2026" },
-    { id: 2, nome: "Projeto Acadêmico", desc: "Desenvolvimento de sistemas para internet", link: "https://github.com/BrunoRodrigues2026" }
+    { id: 1, nome: "Portfólio Estático", link: "#" },
+    { id: 2, nome: "Projeto de Gestão", link: "#" },
+    { id: 3, nome: "Atividade de Migração", link: "#" }
   ];
 
   return (
-    <section>
-      <h2 style={{ textAlign: 'center' }}>Meus Projetos</h2>
-      <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
-        {projetos.map((proj) => (
-          <ProjectCard key={proj.id} titulo={proj.nome} descricao={proj.desc} link={proj.link} />
+    <section id="projetos">
+      <h2>Meus Projetos</h2>
+      <ul>
+        {projetos.map(proj => (
+          <li key={proj.id}>
+            <strong>{proj.nome}</strong>
+          </li>
         ))}
-      </div>
+      </ul>
     </section>
   );
 }
+
+export default ProjectList;
